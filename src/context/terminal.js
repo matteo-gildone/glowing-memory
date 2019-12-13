@@ -1,5 +1,5 @@
 import React, { useReducer, useEffect } from "react";
-import { go, start, notFound, help, intro } from "../executeCommand";
+import { go, start, notFound, help, intro, look } from "../executeCommand";
 
 const TerminalStateContext = React.createContext();
 const TerminalDispatchContext = React.createContext();
@@ -8,32 +8,44 @@ function terminalReducer(state, action) {
   switch (action.type) {
     case "CLEAR": {
       return {
+        ...state,
         commands: []
       };
     }
     case "HELP": {
       return {
+        ...state,
         commands: [...state.commands, help()]
       };
     }
     case "INTRO": {
       return {
+        ...state,
         commands: [...state.commands, intro(action.type, action.payload)]
       };
     }
     case "START": {
       return {
+        ...state,
         commands: [...state.commands, start(action.type, action.payload)]
+      };
+    }
+    case "LOOK": {
+      return {
+        ...state,
+        commands: [...state.commands, look(action.type, state.room)]
       };
     }
     case "GO":
     case "WALK": {
       return {
+        ...state,
         commands: [...state.commands, go(action.type, action.payload)]
       };
     }
     default: {
       return {
+        ...state,
         commands: [...state.commands, notFound(action.type, action.payload)]
       };
     }

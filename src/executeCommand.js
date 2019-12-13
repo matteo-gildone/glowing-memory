@@ -21,6 +21,18 @@ function go(cmd, { params, stem }) {
   };
 }
 
+function look(cmd, room) {
+  return {
+    cmd: cmd.toLowerCase(),
+    params: [],
+    result:
+      map[room].items.length > 0
+        ? map[room].items.length > 0
+        : `Nothing interesting in here...`,
+    valid: true
+  };
+}
+
 function intro() {
   return {
     cmd: "curly-carnival",
@@ -48,4 +60,4 @@ function notFound(cmd, { params }) {
   };
 }
 
-export { start, go, notFound, help, intro };
+export { start, go, notFound, help, intro, look };

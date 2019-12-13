@@ -14,7 +14,7 @@ const map = {
       `
   },
   start: {
-    title: "",
+    title: "The Forest",
     description: `
   You wake up in a **forest**...
   You can see a **castle** not far from where you are...
@@ -22,7 +22,10 @@ const map = {
   You wonder if you should have eaten those mushrooms the old Witch gave you...
   **WHAT SHOULD I DO?**
       `,
-    exits: ["castle"]
+    exits: {
+      north: "castle"
+    },
+    items: []
   },
   castle: {
     title: "",
