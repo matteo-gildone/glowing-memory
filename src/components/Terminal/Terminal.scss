@@ -12,7 +12,12 @@
 }
 
 .c-terminal__result {
-  margin: 5px 0;
+  margin: 5px;
+  p,
+  pre {
+    margin: 0;
+    font-family: "VT323", monospace;
+  }
 }
 
 .c-terminal__command-line {
@@ -31,7 +36,7 @@
 }
 
 .c-terminal__cmd {
-  padding: 5px 15px;
+  padding: 5px;
 }
 
 .c-terminal__cmd--adrSym {

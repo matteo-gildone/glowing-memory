@@ -12,7 +12,7 @@ function start(cmd) {
 function go(cmd, { params, stem }) {
   const room = stem[0];
   return {
-    command: cmd.toLowerCase(),
+    cmd: cmd.toLowerCase(),
     params: params,
     result: map[room]
       ? map[room].description
@@ -43,7 +43,7 @@ function notFound(cmd, { params }) {
   return {
     cmd: cmd.toLowerCase(),
     params: params || [],
-    result: [`command not found: ${cmd.toLowerCase()}`],
+    result: `command not found: ${cmd.toLowerCase()}`,
     valid: false
   };
 }

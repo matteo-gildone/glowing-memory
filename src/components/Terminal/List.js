@@ -30,7 +30,6 @@ const List = () => {
         {command.result ? (
           <Result key={`result-${index}`}>{command.result}</Result>
         ) : null}
-        <Result></Result>
       </div>
     );
   });
