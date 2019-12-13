@@ -4,6 +4,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  animation: textShadow 1.033s infinite;
 }
 
 ::-webkit-scrollbar-track {
@@ -23,56 +24,41 @@ body {
   margin: 0;
   padding: 0;
   background: #0c1d12;
-}
-
-.g {
-  color: #007700;
-}
-.lg {
   color: #00b600;
 }
-.w {
-  color: #00ff00;
+
+html {
+  box-sizing: border-box;
 }
-.by {
-  color: #0c1d12;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
+
+// .g {
+//   color: #007700;
+// }
+// .lg {
+//   color: #00b600;
+// }
+// .w {
+//   color: #00ff00;
+// }
+// .by {
+//   color: #0c1d12;
+// }
 
 ::-moz-selection {
   color: 000000;
   background: #00b600;
 }
-.g::-moz-selection,
-.by::-moz-selection {
-  color: #000000;
-}
-.lg::-moz-selection {
-  color: #000000;
-}
-.w::-moz-selection {
-  color: #000000;
-}
-
 ::selection {
   color: #000000;
   background: #00b600;
 }
-.g::selection,
-.by::selection {
-  color: #000000;
-}
-.lg::selection {
-  color: #000000;
-}
-.w::selection {
-  color: #000000;
-}
 
-body {
-  padding: 16px 8px 16px 8px;
-  animation: textShadow 1.033s infinite;
-}
-.flicker {
+.u-flicker {
   pointer-events: none;
   position: absolute;
   width: auto;
@@ -80,9 +66,9 @@ body {
   height: 100%;
   z-index: 15;
   background: rgba(9, 8, 8, 0.1);
-  animation: flicker 0.3301s infinite;
+  animation: flicker 2s infinite;
 }
-.scanline {
+.u-scanline {
   position: absolute;
   pointer-events: none;
   top: 0%;
@@ -94,7 +80,7 @@ body {
   opacity: 0.75;
   animation: scanline 7.77s linear infinite;
 }
-.scanlines {
+.u-scanlines {
   position: absolute;
   pointer-events: none;
   width: auto;

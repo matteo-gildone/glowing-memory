@@ -4,10 +4,10 @@ import "./App.scss";
 
 const App: React.FC = () => {
   return (
-    <div className="App lg">
-      <div className="scanlines"></div>
-      <div className="scanline"></div>
-      <div className="flicker"></div>
+    <div className="App">
+      <div className="u-scanlines"></div>
+      <div className="u-scanline"></div>
+      <div className="u-flicker"></div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
