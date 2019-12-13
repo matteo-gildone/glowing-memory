@@ -39,7 +39,7 @@ function look(cmd, room, { params }) {
     params: params,
     result:
       map[room].items.length > 0
-        ? map[room].items.length > 0
+        ? `There is ${map[room].items.join(" ")}`
         : `Nothing interesting in here...`,
     valid: true
   };

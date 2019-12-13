@@ -32,7 +32,7 @@ const map = {
   A HUGE door is in front of you...
   **WHAT SHOULD I DO?**`,
     exits: ["forest"],
-    items: []
+    items: ["a tin of Spam"]
   },
   forest: {
     title: "",
