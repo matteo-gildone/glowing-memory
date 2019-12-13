@@ -1,7 +1,6 @@
+@import "variables";
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "VT323", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   animation: textShadow 1.033s infinite;
@@ -9,22 +8,22 @@ body {
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #0c1d12;
+  background-color: $color-bg;
 }
 ::-webkit-scrollbar {
   width: 4px;
-  background-color: #0c1d12;
+  background-color: $color-bg;
 }
 * {
-  scrollbar-color: #007700 #aaaaaa;
+  scrollbar-color: $color-sidebar #aaaaaa;
   scrollbar-width: thin;
 }
 html,
 body {
   margin: 0;
   padding: 0;
-  background: #0c1d12;
-  color: #00b600;
+  background-color: $color-bg;
+  color: $color-text;
 }
 
 html {
@@ -36,26 +35,13 @@ html {
   box-sizing: inherit;
 }
 
-// .g {
-//   color: #007700;
-// }
-// .lg {
-//   color: #00b600;
-// }
-// .w {
-//   color: #00ff00;
-// }
-// .by {
-//   color: #0c1d12;
-// }
-
 ::-moz-selection {
   color: 000000;
-  background: #00b600;
+  background: $color-text;
 }
 ::selection {
   color: #000000;
-  background: #00b600;
+  background: $color-text;
 }
 
 .u-flicker {
@@ -66,7 +52,7 @@ html {
   height: 100%;
   z-index: 15;
   background: rgba(9, 8, 8, 0.1);
-  animation: flicker 2s infinite;
+  animation: flicker 0.3s infinite;
 }
 .u-scanline {
   position: absolute;

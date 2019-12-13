@@ -1,0 +1,17 @@
+.c-terminal {
+  font-size: calc(10px + 1vmin);
+}
+.c-terminal__cmd {
+  padding: 5px 15px;
+}
+.c-terminal__cmd--adrSym {
+  &:after {
+    content: " :: ";
+  }
+}
+
+.c-terminal__cmd--path {
+  &:after {
+    content: " \21D2 ";
+  }
+}
