@@ -59,7 +59,7 @@ function TerminalProvider({ children }) {
   };
   const [state, dispatch] = useReducer(terminalReducer, initialState);
   useEffect(() => {
-    const commandsList = document.querySelector(".c-terminal__terminal");
+    const commandsList = document.querySelector(".c-terminal");
     if (commandsList) {
       commandsList.lastChild.scrollIntoView({
         behavior: "smooth",
