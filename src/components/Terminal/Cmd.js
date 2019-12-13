@@ -4,14 +4,10 @@ const Cmd = ({ adrSym, path, cmd, params, valid }) => {
     <div className="c-terminal__cmd">
       <span className="c-terminal__cmd--adrSym">{adrSym}</span>
       <span className="c-terminal__cmd--path">{path}</span>
-      <span className={`c-terminal__cmd u-${valid ? "known" : "unknown"}-cmd`}>
-        <span
-          className={`c-terminal__cmd--command u-${
-            valid ? "known" : "unknown"
-          }-cmd`}
-        >
-          {cmd} {params.join(" ") || ""}
-        </span>
+      <span
+        className={`c-terminal__cmd u-cmd--${valid ? "valid" : "not-valid"}`}
+      >
+        {cmd} {params.join(" ") || ""}
       </span>
     </div>
   );

@@ -1,18 +1,15 @@
 import React from "react";
+import { TerminalProvider } from "./context/terminal";
 import { Terminal } from "./components/Terminal/Terminal";
+
 function App() {
   return (
-    <div className="App">
+    <TerminalProvider>
       <Terminal>
-        <Terminal.Cmd
-          adrSym="user@Curly-Carnival"
-          path="~"
-          cmd="cd"
-          params={["bar"]}
-          valid={true}
-        />
+        <Terminal.List></Terminal.List>
+        <Terminal.Input></Terminal.Input>
       </Terminal>
-    </div>
+    </TerminalProvider>
   );
 }
 
