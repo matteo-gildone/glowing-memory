@@ -1,6 +1,6 @@
 const map = {
   intro: {
-    title: "-== Curly Carnival ==-",
+    title: "-== Glowing Memory ==-",
     description: `
   Welcome my friend,
   this is an interactive fiction now type start to begin the adventure.
@@ -10,8 +10,7 @@ const map = {
       **get** the rope
       **drop** the lantern
       **inventory**
-      **look**
-      `
+      **look**`
   },
   start: {
     title: "The Forest",
@@ -20,8 +19,7 @@ const map = {
   You can see a **castle** not far from where you are...
   It is late at night...
   You wonder if you should have eaten those mushrooms the old Witch gave you...
-  **WHAT SHOULD I DO?**
-      `,
+  **WHAT SHOULD I DO?**`,
     exits: {
       north: "castle"
     },
@@ -32,9 +30,9 @@ const map = {
     description: `
   You finally reached the castle...
   A HUGE door is in front of you...
-  **WHAT SHOULD I DO?**
-      `,
-    exits: ["forest"]
+  **WHAT SHOULD I DO?**`,
+    exits: ["forest"],
+    items: []
   },
   forest: {
     title: "",
@@ -42,9 +40,9 @@ const map = {
   Is the same forest you've earlier.
   Nothing changed in the last 25 minutes...
   The castle is still there...
-  **WHAT SHOULD I DO?**
-      `,
-    exits: ["castle"]
+  **WHAT SHOULD I DO?**`,
+    exits: ["castle"],
+    items: []
   },
   help: {
     description: `
@@ -53,8 +51,7 @@ const map = {
       **go north**
       **get the rope**
       **drop the lantern**
-      **inventory**
-      `
+      **inventory**`
   }
 };
 

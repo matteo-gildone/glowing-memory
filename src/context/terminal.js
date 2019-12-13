@@ -1,5 +1,13 @@
 import React, { useReducer, useEffect } from "react";
-import { go, start, notFound, help, intro, look } from "../executeCommand";
+import {
+  go,
+  start,
+  notFound,
+  help,
+  intro,
+  look,
+  pick
+} from "../executeCommand";
 
 const TerminalStateContext = React.createContext();
 const TerminalDispatchContext = React.createContext();
@@ -33,14 +41,29 @@ function terminalReducer(state, action) {
     case "LOOK": {
       return {
         ...state,
-        commands: [...state.commands, look(action.type, state.room)]
+        commands: [
+          ...state.commands,
+          look(action.type, state.room, action.payload)
+        ]
+      };
+    }
+    case "GET":
+    case "PICK": {
+      return {
+        ...state,
+        commands: [
+          ...state.commands,
+          pick(action.type, state.room, action.payload)
+        ]
       };
     }
     case "GO":
     case "WALK": {
+      const { cmd, room } = go(action.type, state.room, action.payload);
       return {
         ...state,
-        commands: [...state.commands, go(action.type, action.payload)]
+        room: room ? room : state.room,
+        commands: [...state.commands, cmd]
       };
     }
     default: {

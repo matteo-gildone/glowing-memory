@@ -9,22 +9,34 @@ function start(cmd) {
   };
 }
 
-function go(cmd, { params, stem }) {
-  const room = stem[0];
+function go(cmd, room, { params }) {
+  const nextRoom = map[room].exits[params[0]];
+  if (nextRoom) {
+    return {
+      room: nextRoom || null,
+      cmd: {
+        cmd: cmd.toLowerCase(),
+        params: params,
+        result: map[nextRoom].description,
+        valid: true
+      }
+    };
+  }
   return {
-    cmd: cmd.toLowerCase(),
-    params: params,
-    result: map[room]
-      ? map[room].description
-      : `I don't know ${params.join(" ").toUpperCase()}\n**WHAT SHOULD I DO?**`,
-    valid: true
+    room: null,
+    cmd: {
+      cmd: cmd.toLowerCase(),
+      params: params,
+      result: `You can't go there\n**WHAT SHOULD I DO?**`,
+      valid: true
+    }
   };
 }
 
-function look(cmd, room) {
+function look(cmd, room, { params }) {
   return {
     cmd: cmd.toLowerCase(),
-    params: [],
+    params: params,
     result:
       map[room].items.length > 0
         ? map[room].items.length > 0
@@ -33,9 +45,21 @@ function look(cmd, room) {
   };
 }
 
+function pick(cmd, room, { params }) {
+  return {
+    cmd: cmd.toLowerCase(),
+    params: params,
+    result:
+      map[room].items.length > 0
+        ? map[room].items.length > 0
+        : `Nothing to pick up in here...`,
+    valid: true
+  };
+}
+
 function intro() {
   return {
-    cmd: "curly-carnival",
+    cmd: "glowing-memory",
     params: [],
     result: map["intro"].description,
     valid: true
@@ -60,4 +84,4 @@ function notFound(cmd, { params }) {
   };
 }
 
-export { start, go, notFound, help, intro, look };
+export { start, go, notFound, help, intro, look, pick };
