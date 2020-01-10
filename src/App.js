@@ -49,7 +49,7 @@ const TerminalReducer = (state, action) => {
     }
     case "LOOK": {
       const items = map[state.room].items;
-      if (items) {
+      if (items.length > 0) {
         const itemMessages = items.map(item => ({ cmd: item, isResult: true }));
         return {
           ...action.internalChanges,
@@ -113,7 +113,12 @@ function App() {
   const [state, dispatch] = useTerminal(TerminalReducer);
   const [inputRef, setInputFocus] = useFocus();
 
-  const TerminalWithContext = withContext(aaa, state, dispatch, inputRef);
+  const TerminalWithContext = withContext({
+    WrappedComponent: aaa,
+    state,
+    dispatch,
+    inputRef
+  });
   useEffect(() => {
     if (state.newCommand) {
       const [cmd, ...params] = state.newCommand.split(" ");
