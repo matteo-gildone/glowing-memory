@@ -36,6 +36,27 @@ const TerminalReducer = (state, action) => {
         disableInput: true
       };
     }
+    case "GO": {
+      const nextRoom = map[state.room].exits[action.payload.params[0]];
+      if (nextRoom) {
+        return {
+          ...action.internalChanges,
+          commands: [
+            ...action.internalChanges.commands,
+            { cmd: map[nextRoom].description, isResult: true }
+          ],
+          room: nextRoom
+        };
+      }
+      return {
+        ...action.internalChanges,
+        commands: [
+          ...action.internalChanges.commands,
+          { cmd: `You cannot go ${action.payload.params[0]}`, isResult: true }
+        ],
+        disableInput: false
+      };
+    }
     default: {
       return {
         ...action.internalChanges,
