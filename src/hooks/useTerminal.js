@@ -24,7 +24,7 @@ function internalReducer(state, action) {
 
 const useTerminal = (userReducer = (s, a) => a.internalChanges) => {
   const initialState = {
-    newCommand: "",
+    newCommand: "init",
     commands: [],
     disableInput: false
   };

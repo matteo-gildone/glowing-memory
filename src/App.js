@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { map } from "./data/story.js";
 import "./App.scss";
 
 import { useTerminal } from "./hooks/useTerminal";
@@ -8,19 +9,24 @@ import { withContext } from "./components/widthContext";
 import { Terminal } from "./components/Terminal";
 
 const TerminalReducer = (state, action) => {
-  console.log("Calling TerminalReducer", action.type);
   switch (action.type) {
     case "INIT": {
       return {
         ...action.internalChanges,
-        commands: [...action.internalChanges.commands, action.payload.cmd],
+        commands: [
+          ...action.internalChanges.commands,
+          { cmd: map["init"].description, isResult: true }
+        ],
         room: "start"
       };
     }
     case "START": {
       return {
         ...action.internalChanges,
-        commands: [...action.internalChanges.commands, "I'm starting"],
+        commands: [
+          ...action.internalChanges.commands,
+          { cmd: map["start"].description, isResult: true }
+        ],
         room: "start"
       };
     }
@@ -31,12 +37,11 @@ const TerminalReducer = (state, action) => {
       };
     }
     default: {
-      console.log("TerminalReducer");
       return {
         ...action.internalChanges,
         commands: [
           ...action.internalChanges.commands,
-          `command not found: ${action.payload.cmd}`
+          { cmd: `command not found: ${action.payload.cmd}`, isResult: true }
         ],
         disableInput: false
       };

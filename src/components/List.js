@@ -1,12 +1,17 @@
 import React from "react";
 import { useTerminalState } from "./TerminalProvider";
 import { Cmd } from "./Cmd";
+import { Result } from "./Result";
 const List = () => {
   const { commands } = useTerminalState();
   const commandList = commands.map((command, index) => {
     return (
       <div key={`command-${index}`}>
-        <Cmd adrSym="user@Glowing-Memory" path="~" cmd={command} />
+        {command.isResult ? (
+          <Result>{command.cmd}</Result>
+        ) : (
+          <Cmd adrSym="user@Glowing-Memory" path="~" cmd={command} />
+        )}
       </div>
     );
   });
