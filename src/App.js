@@ -17,7 +17,8 @@ const TerminalReducer = (state, action) => {
           ...action.internalChanges.commands,
           { cmd: map["init"].description, isResult: true }
         ],
-        room: "start"
+        room: "start",
+        inventory: []
       };
     }
     case "START": {

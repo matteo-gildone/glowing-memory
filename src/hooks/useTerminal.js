@@ -28,6 +28,7 @@ const useTerminal = (userReducer = (s, a) => a.internalChanges) => {
     commands: [],
     disableInput: false
   };
+
   const resolveChangesReducer = (currentInternalState, action) => {
     const internalChanges = internalReducer(currentInternalState, action);
     const userChanges = userReducer(currentInternalState, {
