@@ -30,6 +30,16 @@ const TerminalReducer = (state, action) => {
         room: "start"
       };
     }
+    case "HELP": {
+      return {
+        ...action.internalChanges,
+        commands: [
+          ...action.internalChanges.commands,
+          { cmd: map["help"].description, isResult: true }
+        ],
+        room: "start"
+      };
+    }
     case "NEW-COMMAND": {
       return {
         ...action.internalChanges,
