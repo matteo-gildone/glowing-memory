@@ -1,9 +1,9 @@
-import React, { useState, useRef } from "react";
-import { useTerminalDispatch } from "./TerminalProvider";
+import React, { useState } from "react";
+import { useTerminalDispatch, useTerminalRef } from "./TerminalProvider";
 
 const Input = () => {
   const [text, setText] = useState("");
-  const inputEl = useRef(null);
+  const inputEl = useTerminalRef();
   const dispatch = useTerminalDispatch();
   const log = text => e => {
     e.preventDefault();

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./App.scss";
 
 import { useTerminal } from "./hooks/useTerminal";
+import { useFocus } from "./hooks/useFocus";
 
 import { withContext } from "./components/widthContext";
 import { Terminal } from "./components/Terminal";
@@ -54,13 +55,20 @@ const aaa = () => {
 
 function App() {
   const [state, dispatch] = useTerminal(TerminalReducer);
-  const TerminalWithContext = withContext(aaa, state, dispatch);
+  const [inputRef, setInputFocus] = useFocus();
+
+  const TerminalWithContext = withContext(aaa, state, dispatch, inputRef);
   useEffect(() => {
     if (state.newCommand) {
       const [cmd, ...params] = state.newCommand.split(" ");
       dispatch({ type: cmd.toUpperCase(), payload: { cmd, params } });
     }
   }, [state.newCommand, dispatch]);
-  return <TerminalWithContext />;
+
+  return (
+    <div onClick={e => setInputFocus()}>
+      <TerminalWithContext />
+    </div>
+  );
 }
 export default App;
