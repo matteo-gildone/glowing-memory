@@ -29,7 +29,7 @@ Some examples:
     A HUGE door is in front of you...
     **WHAT SHOULD I DO?**`,
     exits: ["forest"],
-    items: ["a tin of Spam"]
+    items: ["a tin of Spam", "a can of Coke"]
   },
   forest: {
     title: "",

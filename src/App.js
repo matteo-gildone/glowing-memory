@@ -36,6 +36,25 @@ const TerminalReducer = (state, action) => {
         disableInput: true
       };
     }
+    case "LOOK": {
+      const items = map[state.room].items;
+      if (items) {
+        const itemMessages = items.map(item => ({ cmd: item, isResult: true }));
+        return {
+          ...action.internalChanges,
+          commands: [...action.internalChanges.commands, ...itemMessages],
+          room: items
+        };
+      }
+      return {
+        ...action.internalChanges,
+        commands: [
+          ...action.internalChanges.commands,
+          { cmd: `Nothing interesting here... Next room!`, isResult: true }
+        ],
+        disableInput: false
+      };
+    }
     case "GO": {
       const nextRoom = map[state.room].exits[action.payload.params[0]];
       if (nextRoom) {
